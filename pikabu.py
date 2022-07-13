@@ -1,0 +1,23 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+import time
+
+options = Options()
+options.add_argument("start-maximized")
+
+s = Service('./chromedriver')
+driver.get("https://pikabu.ru")
+
+for i in range(5):
+    articles = driver.find_elements(By.TAG_NAME, 'article')
+    actions = ActionChains(driver)
+    actions.move_to_element(articles[-1])
+    actions.perform()
+    time.sleep(4)
+    #actions.click()
+    #actions.send_keys("Hello")
+    #actions.key_down(Keys.CONTROL).key_down(Keys.c).key_up(Keys.CONTROL).key_up(Keys.c)
